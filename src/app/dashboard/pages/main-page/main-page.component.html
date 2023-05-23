@@ -1,0 +1,40 @@
+<main class="container ">
+
+  <div class="row">
+    <div *ngFor="let track of recommendationsList" class="col-6">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 ">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-success">{{ track.album.album_type | titlecase }}</strong>
+          <h5 class="mb-0 fw-bold">{{ track.name | titlecase }}</h5>
+          <div class="mb-1 text-body-secondary">{{ track.album.release_date }}</div>
+          <p *ngFor="let artist of track.artists" class="mb-0">{{ artist.name }}</p>
+          <a
+            class="mt-auto"
+            [href]="track.external_urls.spotify"
+            target="_blank">
+            Listen on Spotify
+          </a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img
+            class="bd-placeholder-img"
+            width="250"
+            height="250"
+            aria-label="Placeholder: Thumbnail"
+            [src]="track.album.images[0].url"
+            alt="Album Image">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <ul>
+    <li *ngFor="let track of recommendationsList">
+      <img [src]="track.album.images[0].url" alt="Album Image">
+      <p>{{ track.name }}</p>
+      <div *ngFor="let artist of track.artists">
+        {{ artist.name }}
+      </div>
+    </li>
+  </ul> -->
+
+</main>

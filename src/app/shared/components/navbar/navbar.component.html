@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Eighth navbar example">
+  <div class="container">
+    <a class="d-flex align-items-center navbar-brand fw-bold" routerLink="/">
+      <img class="me-2" [src]="spotifyLogo" alt="Spotify Logo">
+      Music App
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-main"
+      aria-controls="navbar-main" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbar-main">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
+        <li class="nav-item" *ngFor="let link of links">
+
+          <a
+          class="nav-link"
+          [routerLink]="link.url"
+          routerLinkActive="active fw-bold">
+          <!-- [routerLinkActiveOptions]="link.url === './' ? {exact: true} : {exact: false}"  -->
+            {{ link.name }}
+          </a>
+        </li>
+      </ul>
+      <div class="d-flex align-items-center">
+        <a
+          [href]="user?.profile_link"
+          class="mb-0 me-2 text-light text-decoration-none">
+          {{ user?.name }}
+        </a>
+        <img
+          *ngIf="user"
+          class="a-profile-photo rounded-circle me-4"
+          [src]="user.profile_photo"
+          alt="User Profile Photo">
+        <button
+          (click)="logout()"
+          class="btn btn-outline-warning text-capitalize">
+          Log out
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>

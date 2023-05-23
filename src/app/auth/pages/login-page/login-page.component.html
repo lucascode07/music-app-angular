@@ -1,0 +1,49 @@
+<div class="o-login-page text-center vh-100 d-flex justify-content-center align-items-center">
+  <main class="form-signin w-100 m-auto">
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <img class="mb-4" [src]="spotifyLogo" alt="Spotify Logo">
+      <h1>Music App</h1>
+
+      <div class="form-floating">
+        <input
+          [ngClass]="{'is-invalid': isValidField('email')}"
+          type="email"
+          class="form-control shadow-none"
+          id="floatingInput"
+          placeholder="name@example.com"
+          formControlName="email">
+        <label class="fw-light" for="floatingInput">Email address</label>
+      </div>
+
+      <div class="form-floating">
+        <input
+          [ngClass]="{'is-invalid': isValidField('password')}"
+          type="password"
+          class="form-control shadow-none "
+          id="floatingPassword"
+          placeholder="password"
+          formControlName="password">
+        <label class="fw-light" for="floatingPassword">Password</label>
+      </div>
+
+      <div class="checkbox mb-3">
+        <label class="fw-light">
+          <input
+            type="checkbox"
+            value="remember-me">
+            Show password
+        </label>
+      </div>
+
+      <button
+        class="w-100 btn btn-lg btn-success text-capitalize fw-medium"
+        type="button" (click)="login()">
+        Sign in
+      </button>
+
+      <p class="mt-5 mb-3 text-secondary fw-light">© 2021–2023</p>
+    </form>
+  </main>
+</div>
+
+
